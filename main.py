@@ -103,6 +103,7 @@ def printResult(result):
         finalResult.write("Possible choices(s):\n\n")
         for combination in result:
             for i in range(len(combination)):
+                finalResult.write(i + ":\n")
                 finalResult.write(courses[i] + ": " + bufferList[i][combination[i]] + "\n")
             finalResult.write("\n")
 

@@ -20,7 +20,12 @@ def getCourses():
 
 def getSchedule(courseCode):
     url      = "https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE.main_display1?acadsem=2014;2&r_search_type=F&r_subj_code=" + courseCode + "&boption=Search&staff_access=false&acadsem=2014;2&r_course_yr="
-    r        = s.post(url)
+    try:
+        r    = s.post(url)
+    except requests.exceptions.ConnectionError:
+        print("Connection error. Cannot connect to NTU server.")
+        print("Please try to run this script again.")
+        exit()
     soup     = BeautifulSoup(r.text)
     schedule = soup.find_all("table")[1].find_all("td")
     schedule = schedule[:]

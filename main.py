@@ -98,14 +98,16 @@ def testAllCombinations(combinations):
     return result
 
 def printResult(result):
-    print("\nResults have been saved to file 'result.txt'.")
     with open("result.txt", "w") as finalResult:
+        counter = 1
         finalResult.write("Possible choices(s):\n\n")
         for combination in result:
+            finalResult.write(str(counter) + ":\n")
+            counter += 1
             for i in range(len(combination)):
-                finalResult.write(i + ":\n")
                 finalResult.write(courses[i] + ": " + bufferList[i][combination[i]] + "\n")
             finalResult.write("\n")
+    print("\nResults have been saved to file 'result.txt'")
 
 
 ##############################

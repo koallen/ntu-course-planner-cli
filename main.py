@@ -97,7 +97,7 @@ def testAllCombinations(combinations):
 
     return result
 
-def printResult(result):
+def saveResult(result):
     with open("result.txt", "w") as finalResult:
         counter = 1
         finalResult.write("Possible choices(s):\n\n")
@@ -135,6 +135,8 @@ for course in courses:
 
 combinations = list(product(*courseAndIndex))
 
+#plan courses
+print("Planning your courses, please wait")
 result = testAllCombinations(combinations)
 
-printResult(result)
+saveResult(result)

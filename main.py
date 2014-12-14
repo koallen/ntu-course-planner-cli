@@ -33,8 +33,8 @@ def getSchedule(courseCode):
 
 def parseSchedule(courseCode, indexOfDay_dict):
     global courseSchedule
-    schedule    = getSchedule(courseCode)
     print("Getting schedule for " + courseCode.upper() + "...")
+    schedule = getSchedule(courseCode)
     for i in range(len(schedule) // 7):
         for j in range(7):
             string = str(schedule[i * 7 + j])

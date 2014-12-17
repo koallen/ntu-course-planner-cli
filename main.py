@@ -91,11 +91,32 @@ def testAllCombinations(combinations):
             nextTime = courseSchedule[courses[i]][bufferList[i][combination[i]]]
             if checkClash(currentTime, nextTime):
                 result.remove(combination)
+                print(len(result))
                 break
             else:
                 currentTime = combineTime(currentTime, nextTime)
+                if meetsRequirement(currentTime):
+                    continue
+                else:
+                    result.remove(combination)
+                    print(len(result))
+                    print("DOESN'T MEET REQUIREMENT!!!")
+                    break
 
     return result
+
+def meetsRequirement(time):
+    for i in range(0,120,24):
+        if "1" in time[i:i + 2]: # classes start after 9:30 A.M.
+            return False
+        else:
+            continue
+    return True
+    # have at least 1 hour for lunch
+    #if "1" in time[6:8] or "1" in time[8:10] or "1" in time[10:12]:
+    #    return False
+    #else:
+    #    pass
 
 def saveResult(result):
     with open("result.txt", "w") as finalResult:

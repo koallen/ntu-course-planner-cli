@@ -60,11 +60,12 @@ def getTime(string):
     return numOfTimeSlots
 
 def checkClash(time1, time2):
-    for i in range(120):
-        if time1[i] == time2[i] == "1":
-            return True
-        else:
-            continue
+    for i in range(10):
+        for j in range(12):
+            if time1[12 * i + j] == time2[12 * i + j] == "1":
+                return True
+            else:
+                continue
     return False
 
 def combineTime(time1, time2):
@@ -74,7 +75,6 @@ def combineTime(time1, time2):
             continue
         else:
             newTime = newTime[:i] + "1" + newTime[i + 1:]
-            #print(newTime)
     return newTime
 
 def testAllCombinations(combinations):

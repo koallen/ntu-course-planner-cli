@@ -1,4 +1,4 @@
-#NTUcoursePlanner
+#NTUCoursePlanner
 
 A Python script for NTU students to plan courses.
 

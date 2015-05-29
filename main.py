@@ -23,21 +23,23 @@ def getSchedule(courseCode):
     """fetch course schedule basing on course code from NTU website"""
 
     # generate URL for a course
-    url      = "https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE.main_display1?acadsem=2014;2&r_search_type=F&r_subj_code=" + courseCode + "&boption=Search&staff_access=false&acadsem=2014;2&r_course_yr="
+    url = "https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE.main_display1?acadsem=2015;1&r_search_type=F&r_subj_code=" + \
+        courseCode + "&boption=Search&staff_access=false&acadsem=2015;1&r_course_yr="
 
     try:
-        r    = s.post(url) # try connecting to the server
+        r = s.post(url) # try connecting to the server
     # exit program if server is not reachable
     except requests.exceptions.ConnectionError:
         print("Connection error. Cannot connect to NTU server.")
         print("Please try to run this script again.")
         exit()
 
-    soup     = BeautifulSoup(r.text) # create BeautifulSoup object for later parsing
+    soup = BeautifulSoup(r.text) # create BeautifulSoup object for later parsing
 
     # save the table which contains the course schedule
     schedule = soup.find_all("table")[1].find_all("td")
     schedule = schedule[:]
+
     return schedule
 
 def parseSchedule(courseCode, indexOfDay_dict):
@@ -45,8 +47,9 @@ def parseSchedule(courseCode, indexOfDay_dict):
 
     global courseSchedule
 
-    print("Getting schedule for " + courseCode.upper() + "...")
+    print("Getting schedule for " + courseCode.upper() + "...", end=" ")
     schedule = getSchedule(courseCode) # get html table format of course schedule
+    print("Done")
 
     # convert the course schedule to a binary string
     # it is a 120 bit string and every bit represents half an hour
@@ -126,11 +129,11 @@ def testAllCombinations(combinations):
                 break
             else:
                 currentTime = combineTime(currentTime, nextTime)
-                if meetsRequirement(currentTime):
-                    continue
-                else:
-                    result.remove(combination)
-                    break
+                #if meetsRequirement(currentTime):
+                #    continue
+                #else:
+                #    result.remove(combination)
+                #    break
 
     return result
 
@@ -178,6 +181,10 @@ getCourses()
 #get schedule of selected courses
 for course in courses:
     parseSchedule(course, indexOfDay)
+
+#for code in courseSchedule:
+#    for index in code:
+#        print(index)
 
 #create a list to store all combination
 courseAndIndex = []

@@ -41,7 +41,7 @@ def getSchedule(courseCode):
     except requests.exceptions.ConnectionError:
         print("Connection error. Cannot connect to NTU server.")
         print("Please try to run this script again.")
-        exit()
+        exit(-1)
 
     soup = BeautifulSoup(r.text) # create BeautifulSoup object for later parsing
 

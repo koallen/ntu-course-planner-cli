@@ -7,7 +7,16 @@ from itertools import product
 def getCourses():
     """get the number of courses and corresponding course code(s)"""
 
-    numOfCourses = int(input("How many courses do you wanna take? > "))
+    while True:
+        try:
+            numOfCourses = int(input("How many courses do you wanna take? > "))
+            if numOfCourses < 1:
+                print("Please enter a number larger than 0")
+            else:
+                break
+        except ValueError:
+            print("Please enter a valid number")
+
     global courses, courseSchedule
     courses      = []
 
@@ -37,7 +46,12 @@ def getSchedule(courseCode):
     soup = BeautifulSoup(r.text) # create BeautifulSoup object for later parsing
 
     # save the table which contains the course schedule
-    schedule = soup.find_all("table")[1].find_all("td")
+    try:
+        schedule = soup.find_all("table")[1].find_all("td")
+    except IndexError:
+        print("\nThe course code does not exist in NTU database for this semester.")
+        print("Please make sure you entered a valid course code.")
+        exit(-1)
     schedule = schedule[:]
 
     return schedule
@@ -194,7 +208,7 @@ for course in courses:
 combinations = list(product(*courseAndIndex))
 
 #plan courses
-print("Planning your courses, please wait")
+print("\nPlanning your courses, please wait...")
 result = testAllCombinations(combinations)
 
 saveResult(result)

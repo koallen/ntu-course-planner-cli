@@ -32,8 +32,8 @@ def getSchedule(courseCode):
     """fetch course schedule basing on course code from NTU website"""
 
     # generate URL for a course
-    url = "https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE.main_display1?acadsem=2015;1&r_search_type=F&r_subj_code=" + \
-        courseCode + "&boption=Search&staff_access=false&acadsem=2015;1&r_course_yr="
+    url = "https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE.main_display1?acadsem=2015;2&r_search_type=F&r_subj_code=" + \
+        courseCode + "&boption=Search&staff_access=false&acadsem=2015;2&r_course_yr="
 
     try:
         r = s.post(url) # try connecting to the server

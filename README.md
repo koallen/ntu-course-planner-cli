@@ -5,6 +5,7 @@ A Python script for NTU students to plan courses.
 ##Update
 
 Updated for academic year 2015 semester 1 (*29/05/2015*)
+Updated for academic year 2015 semester 2 (19/11/2015)
 
 ##Dependencies
 

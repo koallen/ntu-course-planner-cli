@@ -5,14 +5,19 @@ A Python program for NTU students to plan courses.
 ##Course Schedule Updates
 
 Updated for academic year 2015 semester 1 (*29/05/2015*)
-Updated for academic year 2015 semester 2 (19/11/2015)
+
+Updated for academic year 2015 semester 2 (*19/11/2015*)
 
 ##Dependencies
 
-    requests (2.5.0)
-    beautifulsoup4 (4.3.2)
+* requests (2.5.0)
+* beautifulsoup4 (4.3.2)
 
 If you know how to use *requirements.txt*, you can use that to help you install these dependencies.
+
+##Download
+
+You can download this program [here](https://github.com/koallen/NTUCoursePlanner/releases/tag/v1.0)
 
 ##Usage
 

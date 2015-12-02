@@ -11,7 +11,8 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.poolmanager import PoolManager
 
 class SSLAdapter(HTTPAdapter):
-    '''An HTTPS Transport Adapter that uses an arbitrary SSL version.'''
+    """An HTTPS Transport Adapter that uses an arbitrary SSL version."""
+
     def __init__(self, ssl_version=None, **kwargs):
         self.ssl_version = ssl_version
 

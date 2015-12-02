@@ -1,11 +1,11 @@
-################################################################################
-# Codes are from http://lukasa.co.uk/2013/01/Choosing_SSL_Version_In_Requests/ #
-#                                                                              #
-# It is used to choose a SSL version manually so that I can successfully       #
-# connect to NTU server to fetch course schedule data.                         #
-#                                                                              #
-# Thanks for Lukasa's work :)                                                  #
-################################################################################
+"""
+Codes are from http://lukasa.co.uk/2013/01/Choosing_SSL_Version_In_Requests/
+
+It is used to choose a SSL version manually so that I can successfully
+connect to NTU server to fetch course schedule data.
+
+Thanks for Lukasa's work :)
+"""
 
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.poolmanager import PoolManager

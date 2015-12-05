@@ -1,23 +1,25 @@
+# -*- coding: utf-8 -*-
 from courseSchedule import CourseSchedule
 
+
 class Course:
-    """Course class that contains relevant information about a course"""
+
 
     def __init__(self, courseCode):
         self.__courseCode = courseCode
         self.__courseSchedule = CourseSchedule()
 
-    def getCourseSchedule(self):
+    def get_course_schedule(self):
         """get the dictionary of the schedule"""
 
-        return self.__courseSchedule.getSchedule()
+        return self.__courseSchedule.get_schedule()
 
-    def getCourseCode(self):
+    def get_course_code(self):
         """get the course code"""
 
         return self.__courseCode
 
-    def fetchSchedule(self):
+    def fetch_schedule(self):
         """fetch schedule of the course"""
 
-        self.__courseSchedule.parseSchedule(self.__courseCode)
+        self.__courseSchedule.parse_schedule(self.__courseCode)

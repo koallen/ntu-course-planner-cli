@@ -1,4 +1,4 @@
-#NTUCoursePlanner
+#NTU Course Planner
 
 A Python program for NTU students to plan courses.
 

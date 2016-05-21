@@ -67,9 +67,9 @@ class CourseSchedule():
         # generate URL for the course
         url = \
             "https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE" + \
-            ".main_display1?acadsem=2015;2&r_search_type=F&r_subj_code=" + \
+            ".main_display1?acadsem=2016;1&r_search_type=F&r_subj_code=" + \
             courseCode + \
-            "&boption=Search&staff_access=false&acadsem=2015;2&r_course_yr="
+            "&boption=Search&staff_access=false&acadsem=2016;1&r_course_yr="
 
         # try connecting to the server
         try:

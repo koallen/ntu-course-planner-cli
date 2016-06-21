@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from courseSchedule import CourseSchedule
+from .courseSchedule import CourseSchedule
 
 
 class Course:

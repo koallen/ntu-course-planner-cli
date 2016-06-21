@@ -4,11 +4,77 @@ Planner that plans the timetable
 """
 
 from itertools import product
-from course import Course
+from .course import Course
+import re
 
 
 class Planner:
     """planner handles the planning of timetable"""
+
+    def plan(self, course_list, output_file=None):
+        """
+        Execute the planner
+
+        parameters:
+            course_list: A list of courses
+            output_file: The file to save the result to
+        """
+
+        # course code validation
+        if not self.validate(course_list):
+            return {'error': 'invalid course code'}
+
+        # save courses
+        self.__courses = []
+        for course_code in course_list:
+            self.__courses.append(Course(course_code))
+
+        # fetch schedule
+        self.__fetch_schedule()
+
+        # generate permutations and test them
+        courseAndIndex = []
+        for course in self.__courses:
+            courseAndIndex.append(
+                [i for i in range(len(course.get_course_schedule()))]
+            )
+
+        combinations = list(product(*courseAndIndex))
+        self.__test_all_combinations(combinations)
+
+        # output results
+        if output_file is not None:
+            pass
+
+        result = []
+
+        for combination in self.__result:
+            single_result = []
+            for i in range(len(combination)):
+                single_dict = {}
+                single_dict['course code'] = self.__courses[i].get_course_code().upper()
+                single_dict['index'] = self.__bufferList[i][combination[i]]
+                single_result.append(single_dict)
+            result.append(single_result)
+
+        return result
+
+
+    def validate(self, course_list):
+        """
+        Validates the course code
+
+        parameters:
+            course_list: A list of courses
+        """
+
+        pattern = r"^\w{2}\d{4}$" # course code regex pattern
+
+        # validate every course code
+        for course in course_list:
+            if not re.search(pattern, course):
+                return False
+        return True
 
     def start(self):
         """start the planner"""
@@ -33,27 +99,27 @@ class Planner:
         # save the result
         self.__save_result()
 
-    def __get_courses(self):
-        """get the number of courses and corresponding course code(s)"""
+    #def __get_courses(self):
+    #    """get the number of courses and corresponding course code(s)"""
 
-        while True:
-            try:
-                numOfCourses = int(
-                    input("How many courses do you wanna take? > ")
-                    )
-                if numOfCourses < 1:
-                    print("Please enter a number larger than 0")
-                else:
-                    break
-            except ValueError:
-                print("Please enter a valid number")
+    #    while True:
+    #        try:
+    #            numOfCourses = int(
+    #                input("How many courses do you wanna take? > ")
+    #                )
+    #            if numOfCourses < 1:
+    #                print("Please enter a number larger than 0")
+    #            else:
+    #                break
+    #        except ValueError:
+    #            print("Please enter a valid number")
 
-        self.__courses = []
+    #    self.__courses = []
 
-        for num in range(numOfCourses):
-            courseCode = input("Input course code > ")
-            self.__courses.append(Course(courseCode))
-        print()
+    #    for num in range(numOfCourses):
+    #        courseCode = input("Input course code > ")
+    #        self.__courses.append(Course(courseCode))
+    #    print()
 
     def __fetch_schedule(self):
         """fetch all the schedules"""

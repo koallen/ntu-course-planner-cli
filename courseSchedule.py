@@ -5,7 +5,7 @@ class for course schedule
 
 from bs4 import BeautifulSoup
 import requests
-import sslType
+from .sslType import SSLAdapter
 import ssl
 
 
@@ -74,7 +74,7 @@ class CourseSchedule():
         # try connecting to the server
         try:
             s = requests.Session()
-            s.mount("https://", sslType.SSLAdapter(ssl.PROTOCOL_TLSv1))
+            s.mount("https://", SSLAdapter(ssl.PROTOCOL_TLSv1))
             r = s.post(url)
         # exit program if server is not reachable
         except requests.exceptions.ConnectionError:

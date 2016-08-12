@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from .courseSchedule import CourseSchedule
 from bs4 import BeautifulSoup
 import requests
-from .sslType import SSLAdapter
+from ntu_course_planner.ssl_type import SSLAdapter
 import ssl
 
 
@@ -30,7 +29,7 @@ class Course:
         self.__courseSchedule.parse_schedule(self.__courseCode)
 
 
-class CourseSchedule():
+class CourseSchedule:
     """class that contains schedule of a course"""
 
     INDEX_OF_DAY = {'MON': 0, 'TUE': 24, 'WED': 48, 'THU': 72, 'FRI': 96}

@@ -4,7 +4,7 @@ Planner that plans the timetable
 """
 
 from itertools import product
-from .course import Course
+from ntu_course_planner.course import Course
 import re
 
 

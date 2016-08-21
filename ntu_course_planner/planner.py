@@ -4,7 +4,7 @@ Planner that plans the timetable
 """
 
 from itertools import product
-from ntu_course_planner.course import Course
+from .course import Course
 import re
 
 
@@ -99,27 +99,27 @@ class Planner:
         # save the result
         self.__save_result()
 
-    #def __get_courses(self):
-    #    """get the number of courses and corresponding course code(s)"""
+    def __get_courses(self):
+        """get the number of courses and corresponding course code(s)"""
 
-    #    while True:
-    #        try:
-    #            numOfCourses = int(
-    #                input("How many courses do you wanna take? > ")
-    #                )
-    #            if numOfCourses < 1:
-    #                print("Please enter a number larger than 0")
-    #            else:
-    #                break
-    #        except ValueError:
-    #            print("Please enter a valid number")
+        while True:
+            try:
+                numOfCourses = int(
+                    input("How many courses do you wanna take? > ")
+                    )
+                if numOfCourses < 1:
+                    print("Please enter a number larger than 0")
+                else:
+                    break
+            except ValueError:
+                print("Please enter a valid number")
 
-    #    self.__courses = []
+        self.__courses = []
 
-    #    for num in range(numOfCourses):
-    #        courseCode = input("Input course code > ")
-    #        self.__courses.append(Course(courseCode))
-    #    print()
+        for num in range(numOfCourses):
+            courseCode = input("Input course code > ")
+            self.__courses.append(Course(courseCode))
+        print()
 
     def __fetch_schedule(self):
         """fetch all the schedules"""
@@ -213,7 +213,3 @@ class Planner:
 
         print("\nResults have been saved to file 'result.txt'")
 
-
-# program starting point
-if __name__ == '__main__':
-    Planner().start()

@@ -2,7 +2,7 @@
 
 from bs4 import BeautifulSoup
 import requests
-from ntu_course_planner.ssl_type import SSLAdapter
+from .ssl_type import SSLAdapter
 import ssl
 
 

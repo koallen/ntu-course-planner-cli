@@ -2,4 +2,7 @@ result.txt
 __pycache__/
 *.pyc
 venv/
+build/
 dist/
+*.egg-info/
+*.egg

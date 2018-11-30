@@ -92,7 +92,6 @@ class CourseSchedule:
             "&r_search_type=F&r_subj_code=" + courseCode + \
             "&boption=Search&staff_access=false&acadsem=" + ACADYEAR + \
             ";" + ACADSEM + "&r_course_yr="
-        print(url)
 
         # try connecting to the server
         try:

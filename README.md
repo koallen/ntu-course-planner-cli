@@ -1,6 +1,6 @@
 # NTU Course Planner
 
-A Python program for NTU students to plan courses.
+> A Python program for NTU students to plan courses.
 
 ## Newest Course Schedule Updates
 

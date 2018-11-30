@@ -1,7 +1,7 @@
-all: build
+.PHONY: build upload
 
 build:
-	source venv/bin/activate && python setup.py bdist_wheel
+	. venv/bin/activate && python setup.py bdist_wheel
 
 upload:
-	source venv/bin/activate && twine upload dist/*
+	. venv/bin/activate && twine upload dist/*

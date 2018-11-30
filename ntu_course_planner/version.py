@@ -1,1 +1,5 @@
-VERSION = "17/18 1"
+ACADYEAR = "2018"
+ACADSEM = "2"
+
+def get_version():
+    return ACADYEAR + ACADSEM

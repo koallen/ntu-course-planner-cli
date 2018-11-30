@@ -3,6 +3,7 @@
 from bs4 import BeautifulSoup
 import requests
 from .ssl_type import SSLAdapter
+from .version import ACADYEAR, ACADSEM
 import ssl
 
 
@@ -87,9 +88,11 @@ class CourseSchedule:
         # generate URL for the course
         url = \
             "https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE" + \
-            ".main_display1?acadsem=2016;1&r_search_type=F&r_subj_code=" + \
-            courseCode + \
-            "&boption=Search&staff_access=false&acadsem=2016;1&r_course_yr="
+            ".main_display1?acadsem=" + ACADYEAR + ";" + ACADSEM + \
+            "&r_search_type=F&r_subj_code=" + courseCode + \
+            "&boption=Search&staff_access=false&acadsem=" + ACADYEAR + \
+            ";" + ACADSEM + "&r_course_yr="
+        print(url)
 
         # try connecting to the server
         try:

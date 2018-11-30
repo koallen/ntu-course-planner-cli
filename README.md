@@ -4,7 +4,7 @@
 
 ## Newest Course Schedule Updates
 
-Updated for academic year 2016-17 semester 1 (*22/05/2016*)
+Updated for academic year 2018-19 semester 2 (*30/11/2018*)
 
 ## Installation
 

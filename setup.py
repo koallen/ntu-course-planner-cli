@@ -9,7 +9,7 @@ that you picked. It's guaranteed that there will be no timetable clash.
 
 setup(
     name = "ntu-course-planner",
-    version = "1.0.1",
+    version = "1.0.2",
     description = "A course planner for Nanyang Technological University students",
     long_description = long_description,
     url = "https://github.com/koallen/ntu-course-planner-cli",

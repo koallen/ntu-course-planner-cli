@@ -2,9 +2,10 @@
 
 from bs4 import BeautifulSoup
 import requests
-from .ssl_type import SSLAdapter
-from .version import ACADYEAR, ACADSEM
 import ssl
+
+from .ssl_type import SSLAdapter
+from . import config
 
 
 class Course:
@@ -88,10 +89,10 @@ class CourseSchedule:
         # generate URL for the course
         url = \
             "https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE" + \
-            ".main_display1?acadsem=" + ACADYEAR + ";" + ACADSEM + \
+            ".main_display1?acadsem=" + config.ACADYEAR + ";" + config.ACADSEM + \
             "&r_search_type=F&r_subj_code=" + courseCode + \
-            "&boption=Search&staff_access=false&acadsem=" + ACADYEAR + \
-            ";" + ACADSEM + "&r_course_yr="
+            "&boption=Search&staff_access=false&acadsem=" + config.ACADYEAR + \
+            ";" + config.ACADSEM + "&r_course_yr="
 
         # try connecting to the server
         try:

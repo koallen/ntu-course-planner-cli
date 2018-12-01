@@ -106,7 +106,7 @@ class CourseSchedule:
             exit(-1)
 
         # create BeautifulSoup object for later parsing
-        soup = BeautifulSoup(r.text)
+        soup = BeautifulSoup(r.text, features="html.parser")
 
         # save the table which contains the course schedule
         try:
